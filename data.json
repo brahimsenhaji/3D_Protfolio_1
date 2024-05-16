@@ -1,0 +1,60 @@
+[
+    {
+        "img": [
+            "./projects/Hiyou/img1.png",
+            "./projects/Hiyou/img2.png",
+            "./projects/Hiyou/img3.png",
+            "./projects/Hiyou/img4.png",
+            "./projects/Hiyou/img5.png",
+            "./projects/Hiyou/img6.png",
+            "./projects/Hiyou/img7.png",
+            "./projects/Hiyou/img8.png",
+            "./projects/Hiyou/img9.png",
+            "./projects/Hiyou/img10.png",
+            "./icons/text.svg"
+        ],
+        "title": "Hiyou",
+        "description": "HiYou is a feature-rich chat application built with HTML5, powered by Bootstrap 5 and JavaScript for an interactive user experience. Leveraging the Laravel framework on the backend, it ensures seamless integration, enhanced functionality, and optimal responsiveness.",
+        "link": "https://hiyou.kesug.com"
+    },
+    {
+        "img": [
+            "./projects/Tasks/img1.png",
+            "./projects/Tasks/img2.png",
+            "./projects/Tasks/img3.png",
+            "./projects/Tasks/img4.png",
+            "./projects/Tasks/img5.png",
+            "./icons/text.svg"
+        ],
+        "title": "Tasks",
+        "description": "Tasks is a web application designed for managing your daily to-dos effortlessly. It allows you to add tasks, prioritize them by pinning, remove tasks when they're completed, and mark tasks as checked off.",
+        "link": "https://taskapp.000.pe"
+    },
+    {
+        "img": [
+            "./projects/Sofinord/img1.png",
+            "./projects/Sofinord/img2.png",
+            "./projects/Sofinord/img3.png",
+            "./projects/Sofinord/img4.png",
+            "./projects/Sofinord/img5.png",
+            "./icons/text.svg"
+        ],
+        "title": "Sofinord",
+        "description": "Sofinord is a website representing a company specializing in Industrial Maintenance and Supplies",
+        "link": "https://sofinord.netlify.app/"
+    },
+    {
+        "img": [
+            "./projects/Wagen/img1.png",
+            "./projects/Wagen/img2.png",
+            "./projects/Wagen/img3.png",
+            "./projects/Wagen/img4.png",
+            "./projects/Wagen/img5.png",
+            "./projects/Wagen/img5.png",
+            "./icons/text.svg"
+        ],
+        "title": "Wagen",
+        "description": "WAGEN is an innovative online marketplace dedicated to facilitating the buying and selling of cars in pristine condition.",
+        "link": "https://wagen.netlify.app/"
+    }
+]
