@@ -1,6 +1,6 @@
-/*document.addEventListener("contextmenu", function(e) {
+document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
-});*/
+});
 
 const wraps = document.querySelectorAll('.wrap');
 
