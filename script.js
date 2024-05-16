@@ -148,6 +148,7 @@ const closeSkills = document.querySelector('#closeSkills');
 
 closeSkills.addEventListener('click', () => {
     Skills.classList.remove('displaySkills');
+    Skills.classList.remove('plusSkillsapp');
     let element = closeSkills.getAttribute('data-value');
     console.log(element)
     removeSelectedIcon(element);
@@ -594,7 +595,7 @@ event.preventDefault();
 
 //===============================================================================
 
-const cardContents = document.querySelectorAll('#cardContent');
+const cardContents = document.querySelectorAll('#card');
 
 cardContents.forEach(card => {
     card.addEventListener('click', () => {
@@ -609,7 +610,7 @@ cardContents.forEach(card => {
         });
     });
 });
-
+/*
 document.addEventListener("DOMContentLoaded", function() {
     const heads = document.querySelectorAll('.head');
 
@@ -660,5 +661,43 @@ document.addEventListener("DOMContentLoaded", function() {
             currentCard.style.left = (event.clientX - offsetX) + 'px';
             currentCard.style.top = (event.clientY - offsetY) + 'px';
         }
+    }
+});
+
+*/
+
+const cards = document.querySelectorAll('.about, .works, .SelectedImage, .Skills, .Contact');
+
+cards.forEach(card => {
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    card.addEventListener('mousedown', mouseDown);
+
+    function mouseDown(e) {
+        e.preventDefault(); // Prevent default behavior to avoid text selection while dragging
+
+        isDragging = true;
+        offsetX = e.clientX - card.getBoundingClientRect().left;
+        offsetY = e.clientY - card.getBoundingClientRect().top;
+
+        document.addEventListener('mousemove', mouseMove);
+        document.addEventListener('mouseup', mouseUp);
+    }
+
+    function mouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        card.style.left = x + 'px';
+        card.style.top = y + 'px';
+    }
+
+    function mouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', mouseMove);
+        document.removeEventListener('mouseup', mouseUp);
     }
 });

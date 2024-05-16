@@ -4,6 +4,10 @@ html, body{
   height: 100%;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
+  user-select: none; /* Standard syntax */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-user-select: none; /* Safari */
 }
 
 #container {
@@ -267,7 +271,7 @@ canvas{
   color: black;
 }
 .about{
-  position: absolute;
+  position: fixed;
   width: 60%;
   height: 80%;
   background-color: #efe9dc;
@@ -279,9 +283,8 @@ canvas{
 }
 .displayAbout{
   transform: scale(1);
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 20%;
+  top: 10%;
   display: block;
   transition: 0.5s all;
 }
@@ -316,6 +319,8 @@ canvas{
 .plusAbout{
   width: 100%;
   height: 100%;
+  left: 0% !important;
+  top: 0% !important;
 }
 .aboutContet{
   position: relative;
@@ -378,14 +383,14 @@ canvas{
 .displayWork{
   display: block;
   transform: scale(1);
-  left: 40%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+ left: 18%;
+ top: 10%;
 }
 .plusWorks{
   width: 100%;
   height: 100%;
-  left: 50%;
+  left: 0% !important;
+  top: 0% !important;
 
 }
 .aboutContet{
@@ -447,7 +452,8 @@ canvas{
 .plusWorksApp{
   width: 100%;
   height: 100%;
-  left: 50%;
+  left: 0% !important;
+  top: 0% !important;
 }
 .minusWorksApp{
   transform: scale(0);
@@ -535,14 +541,15 @@ canvas{
 .displaySkills{
   display: block;
   transform: scale(1);
-  left: 60%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 25%;
+  top: 10%;
+  
 }
 .plusSkillsapp{
   width: 100%;
   height: 100%;
-  left: 50%;
+  left: 0% !important;
+  top: 0% !important;
   display: block;
 }
 .minusSkillsApp{
@@ -677,14 +684,14 @@ canvas{
 .displayContact{
   display: block;
   transform: scale(1);
-  left: 55%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 22%;
+  top: 10%;
 }
 .plusContact{
   width: 100%;
   height: 100%;
-  left: 50%;
+  left: 0% !important;
+  top: 0% !important;
   display: block;
 }
 .contactForm{
