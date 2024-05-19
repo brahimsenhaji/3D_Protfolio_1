@@ -1,7 +1,27 @@
 document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
-
+function preventDefault(event) {
+    event.preventDefault();
+  }
+  function handleKeydown(event) {
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.keyCode === 73) {
+      preventDefault(event);
+    }
+}
+  
+document.addEventListener('keydown', handleKeydown);
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+  
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && 
+        (e.keyCode === 85)) { // U key
+      return false;
+    }
+};
+  
 const wraps = document.querySelectorAll('.wrap');
 
 wraps.forEach(wrap => {
