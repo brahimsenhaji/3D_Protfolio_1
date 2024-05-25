@@ -359,13 +359,13 @@ function handleWrappeClick() {
     const headIconsDiv = createElement('div', {
         class: 'headIcons'
     });
-    const closeIcon = createElement('i', {
-        class: 'fa-solid fa-circle-xmark',
+    const closeIcon = createElement('img', {
+        src: './icons/x-solid.svg',
         id: 'closeworkfolder',
         'data-value': 'About'
     });
-    const plusIcon = createElement('i', {
-        class: 'fa-solid fa-circle-plus',
+    const plusIcon = createElement('img', {
+        src: './icons/plus-solid.svg',
         id: 'plusworkfolder'
     });
     const headTitleDiv = createElement('div', {
@@ -396,7 +396,7 @@ function handleWrappeClick() {
                 if (isTextSvg) {
                     imgElement.addEventListener('click', () => {
                         let SelectedImage = document.querySelector('.SelectedImage');
-                        SelectedImage.style.display = "block";
+                        SelectedImage.classList.add('showimagecontainer');
                         let headTitle = SelectedImage.querySelector('.headTitle');
                         headTitle.textContent = "Read Me";
                         let p = document.createElement('p');
@@ -407,7 +407,7 @@ function handleWrappeClick() {
                 } else {
                     imgElement.addEventListener('click', () => {
                         let SelectedImage = document.querySelector('.SelectedImage');
-                        SelectedImage.style.display = "block";
+                        SelectedImage.classList.add('showimagecontainer');
                         let headTitle = SelectedImage.querySelector('.headTitle');
                         headTitle.textContent = filename;
                         let img = document.createElement('img');
@@ -446,7 +446,8 @@ document.addEventListener('click', function(event) {
         SelectedImage.classList.toggle('plusclickedImage')
     } else if (targetId === 'closeImage') {
         const SelectedImage = document.querySelector('.SelectedImage');
-        SelectedImage.style.display = "none";
+        SelectedImage.classList.remove('showimagecontainer');
+        SelectedImage.classList.remove('plusclickedImage');
         let imageOf = document.querySelector('.imageOf');
         SelectedImage.removeChild(imageOf)
     }
