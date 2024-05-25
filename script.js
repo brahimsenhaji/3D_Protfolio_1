@@ -461,7 +461,18 @@ document.addEventListener('click', function(event) {
         Skills.classList.toggle('minusSkillsApp')
     }
 });
-
+var isFirstTime = localStorage.getItem("isFirstTime");
+if (!isFirstTime) {
+    document.getElementById("loading").style.display = "flex";
+    setTimeout(function() {
+        localStorage.setItem("isFirstTime", "true");
+        document.getElementById("loading").style.display = "none";
+        runTypingEffect()
+    }, 4000)
+} else {
+    document.getElementById("loading").style.display = "none";
+    runTypingEffect()
+}
 
 function runTypingEffect() {
     function typeText(element, speed, wordBreakCount) {
