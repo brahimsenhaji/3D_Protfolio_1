@@ -1,6 +1,6 @@
-import * as THREE from 'three'; 
-import { OrbitControls } from 'https://unpkg.com/three@0.164.1/examples/jsm/controls/OrbitControls.js'; 
-import { GLTFLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/GLTFLoader.js'; 
+import * as THREE from 'three';
+import { OrbitControls } from 'https://unpkg.com/three@0.164.1/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/GLTFLoader.js';
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const container = document.getElementById('container');
@@ -18,36 +18,52 @@ let model;
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
-loader.load('./model.glb', function (gltf) {
-    model = gltf.scene;
-    model.position.set(10, -10, 0);
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.addEventListener('change', render);
-    controls.update();
-    scene.add(model);
+const isFirstTime = localStorage.getItem("isFirstTime");
 
-    const buttonGeometry = new THREE.BoxGeometry(2, 2, 1);
-    const buttonMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
-    const buttonMesh = new THREE.Mesh(buttonGeometry, buttonMaterial);
-    const boundingBox = new THREE.Box3().setFromObject(model);
-    const center = new THREE.Vector3();
-    boundingBox.getCenter(center);
-    buttonMesh.position.copy(center);
-    model.add(buttonMesh);
+if (!isFirstTime) {
+    document.getElementById("loading").style.display = "flex";
+    setTimeout(function() {
+        localStorage.setItem("isFirstTime", "true");
+        document.getElementById("loading").style.display = "none";
+        initializeScene();
+    }, 4000);
+} else {
+    document.getElementById("loading").style.display = "none";
+    initializeScene();
+}
 
-    const designGeometry = new THREE.BoxGeometry(1, 1, 0.5);
-    const designMaterial = new THREE.MeshBasicMaterial({ color: 0xfffffff });
-    const designMesh = new THREE.Mesh(designGeometry, designMaterial);
-    designMesh.position.set(-12, 14, -29.6);
-    model.add(designMesh);
+function initializeScene() {
+    loader.load('./model.glb', function (gltf) {
+        model = gltf.scene;
+        model.position.set(10, -10, 0);
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.addEventListener('change', render);
+        controls.update();
+        scene.add(model);
 
-    buttonMesh.position.set(-12, 14, -30);
+        const buttonGeometry = new THREE.BoxGeometry(2, 2, 1);
+        const buttonMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+        const buttonMesh = new THREE.Mesh(buttonGeometry, buttonMaterial);
+        const boundingBox = new THREE.Box3().setFromObject(model);
+        const center = new THREE.Vector3();
+        boundingBox.getCenter(center);
+        buttonMesh.position.copy(center);
+        model.add(buttonMesh);
 
-    render();
-    animate();
-}, undefined, function (error) {
-    console.log(error);
-});
+        const designGeometry = new THREE.BoxGeometry(1, 1, 0.5);
+        const designMaterial = new THREE.MeshBasicMaterial({ color: 0xfffffff });
+        const designMesh = new THREE.Mesh(designGeometry, designMaterial);
+        designMesh.position.set(-12, 14, -29.6);
+        model.add(designMesh);
+
+        buttonMesh.position.set(-12, 14, -30);
+
+        render();
+        animate();
+    }, undefined, function (error) {
+        console.log(error);
+    });
+}
 
 function animate() {
     requestAnimationFrame(animate);
