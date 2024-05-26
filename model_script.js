@@ -1,6 +1,7 @@
 import * as THREE from 'three'; 
 import { OrbitControls } from 'https://unpkg.com/three@0.164.1/examples/jsm/controls/OrbitControls.js'; 
 import { GLTFLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/GLTFLoader.js'; 
+import { DRACOLoader } from 'https://unpkg.com/three@0.164.1/examples/jsm/loaders/DRACOLoader.js'; // Import DRACOLoader
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const container = document.getElementById('container');
@@ -13,12 +14,16 @@ scene.add(ambienTLight);
 const directionalLight = new THREE.DirectionalLight(0xfffff, 7);
 scene.add(directionalLight);
 const loader = new GLTFLoader();
+const dracoLoader = new DRACOLoader(); // Create an instance of DRACOLoader
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/'); // Set decoder path
+loader.setDRACOLoader(dracoLoader); // Set DRACOLoader for GLTFLoader
+
 let model;
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
-loader.load('./model.glb', function (gltf) {
+loader.load('./compressed.glb', function (gltf) { // Load the compressed GLB file
     model = gltf.scene;
     model.position.set(10, -10, 0);
     const controls = new OrbitControls(camera, renderer.domElement);
