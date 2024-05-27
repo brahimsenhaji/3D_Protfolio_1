@@ -387,12 +387,15 @@ function handleWrappeClick() {
             images.forEach(imgUrl => {
                 const filename = imgUrl.substring(imgUrl.lastIndexOf('/') + 1);
                 const isTextSvg = filename.includes('text.svg');
+                const isChrome = filename.includes('chrome.svg');
                 const imgElement = createElement('img', {
                     src: imgUrl,
                     class: isTextSvg ? 'ReadMe' : '',
                     style: isTextSvg ? 'width: 80px' : ''
                 });
-                const titleParagraph = createElement('p', null, [document.createTextNode(isTextSvg ? 'Read Me' : filename)]);
+
+                const titleParagraph = createElement('p', null, [document.createTextNode(isTextSvg ? 'Read Me' : (isChrome ? 'Vist' : filename))]);
+
                 if (isTextSvg) {
                     imgElement.addEventListener('click', () => {
                         let SelectedImage = document.querySelector('.SelectedImage');
@@ -404,7 +407,15 @@ function handleWrappeClick() {
                         p.classList.add('imageOf');
                         SelectedImage.appendChild(p)
                     })
-                } else {
+                } 
+                else if (isChrome) {
+                    imgElement.addEventListener('click', () => {
+                        window.open(appData.link, '_blank');
+                    });
+                }
+                
+                
+                else {
                     imgElement.addEventListener('click', () => {
                         let SelectedImage = document.querySelector('.SelectedImage');
                         SelectedImage.classList.add('showimagecontainer');
@@ -416,6 +427,7 @@ function handleWrappeClick() {
                         SelectedImage.appendChild(img)
                     })
                 }
+                
                 const imageDiv = createElement('div', {
                     class: 'imageDiv'
                 }, [imgElement, titleParagraph]);
@@ -546,7 +558,7 @@ cards.forEach(card => {
     card.addEventListener('mousedown', mouseDown);
 
     function mouseDown(e) {
-        e.preventDefault();
+        //e.preventDefault();
         isDragging = !0;
         offsetX = e.clientX - card.getBoundingClientRect().left;
         offsetY = e.clientY - card.getBoundingClientRect().top;

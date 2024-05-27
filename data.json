@@ -11,7 +11,8 @@
             "./projects/Hiyou/img8.png",
             "./projects/Hiyou/img9.png",
             "./projects/Hiyou/img10.png",
-            "./icons/text.svg"
+            "./icons/text.svg",
+            "./icons/chrome.svg"
         ],
         "title": "Hiyou",
         "description": "HiYou is a feature-rich chat application built with HTML5, powered by Bootstrap 5 and JavaScript for an interactive user experience. Leveraging the Laravel framework on the backend, it ensures seamless integration, enhanced functionality, and optimal responsiveness.",
@@ -24,7 +25,9 @@
             "./projects/Tasks/img3.png",
             "./projects/Tasks/img4.png",
             "./projects/Tasks/img5.png",
-            "./icons/text.svg"
+            "./icons/text.svg",
+            "./icons/chrome.svg"
+
         ],
         "title": "Tasks",
         "description": "Tasks is a web application designed for managing your daily to-dos effortlessly. It allows you to add tasks, prioritize them by pinning, remove tasks when they're completed, and mark tasks as checked off.",
@@ -37,7 +40,8 @@
             "./projects/Sofinord/img3.png",
             "./projects/Sofinord/img4.png",
             "./projects/Sofinord/img5.png",
-            "./icons/text.svg"
+            "./icons/text.svg",
+            "./icons/chrome.svg"
         ],
         "title": "Sofinord",
         "description": "Sofinord is a website representing a company specializing in Industrial Maintenance and Supplies",
@@ -51,7 +55,8 @@
             "./projects/Wagen/img4.png",
             "./projects/Wagen/img5.png",
             "./projects/Wagen/img5.png",
-            "./icons/text.svg"
+            "./icons/text.svg",
+            "./icons/chrome.svg"
         ],
         "title": "Wagen",
         "description": "WAGEN is an innovative online marketplace dedicated to facilitating the buying and selling of cars in pristine condition.",
